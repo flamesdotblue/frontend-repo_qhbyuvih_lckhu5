@@ -67,11 +67,11 @@ function VideoPlayer({ movie, onBack }) {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-3">
-        <button onClick={onBack} className="rounded-md border px-3 py-1.5 text-sm hover:bg-slate-50">Back</button>
-        <h2 className="text-lg font-semibold text-slate-900 truncate">{movie.name}</h2>
+        <button onClick={onBack} className="rounded-md border border-slate-800 bg-slate-900 px-3 py-1.5 text-sm text-slate-200 hover:bg-slate-800">Back</button>
+        <h2 className="text-lg font-semibold text-slate-100 truncate">{movie.name}</h2>
       </div>
 
-      <div ref={containerRef} className="relative aspect-video w-full overflow-hidden rounded-xl bg-black">
+      <div ref={containerRef} className="relative aspect-video w-full overflow-hidden rounded-xl bg-black border border-slate-800">
         <video
           ref={videoRef}
           src={movie.url}
@@ -92,12 +92,12 @@ function VideoPlayer({ movie, onBack }) {
       </div>
 
       <div className="flex items-center gap-3">
-        <button onClick={() => seekBy(-10)} className="rounded-md bg-slate-100 px-3 py-2 text-sm hover:bg-slate-200">-10s</button>
-        <button onClick={togglePlay} className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">
+        <button onClick={() => seekBy(-10)} className="rounded-md bg-slate-800 px-3 py-2 text-sm text-slate-200 hover:bg-slate-700">-10s</button>
+        <button onClick={togglePlay} className="rounded-md bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700">
           {playing ? 'Pause' : 'Play'}
         </button>
-        <button onClick={() => seekBy(10)} className="rounded-md bg-slate-100 px-3 py-2 text-sm hover:bg-slate-200">+10s</button>
-        <div className="ml-auto flex items-center gap-2 text-sm text-slate-600">
+        <button onClick={() => seekBy(10)} className="rounded-md bg-slate-800 px-3 py-2 text-sm text-slate-200 hover:bg-slate-700">+10s</button>
+        <div className="ml-auto flex items-center gap-2 text-sm text-slate-400">
           <span>{formatTime(time)}</span>
           <input
             type="range"
@@ -106,11 +106,11 @@ function VideoPlayer({ movie, onBack }) {
             step={0.1}
             value={Math.min(time, duration || 0)}
             onChange={handleScrub}
-            className="w-56"
+            className="w-56 accent-sky-500"
           />
           <span>{formatTime(duration)}</span>
         </div>
-        <button onClick={toggleFullscreen} className="ml-2 rounded-md border px-3 py-2 text-sm hover:bg-slate-50">Fullscreen</button>
+        <button onClick={toggleFullscreen} className="ml-2 rounded-md border border-slate-800 bg-slate-900 px-3 py-2 text-sm text-slate-200 hover:bg-slate-800">Fullscreen</button>
       </div>
     </div>
   )
