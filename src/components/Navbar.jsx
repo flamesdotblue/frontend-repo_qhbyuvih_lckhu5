@@ -1,25 +1,22 @@
-import React from 'react'
+import React from 'react';
+import { Upload } from 'lucide-react';
 
-function Navbar({ onUploadClick }) {
+export default function Navbar({ onOpenUpload }) {
   return (
-    <header className="w-full sticky top-0 z-10 backdrop-blur bg-black/40 border-b border-slate-800">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-sky-500 to-violet-500 text-white grid place-items-center font-bold">🎬</div>
-          <div>
-            <h1 className="text-xl font-semibold text-slate-100">Movie Share</h1>
-            <p className="text-xs text-slate-400 leading-none">Watch and share from anywhere</p>
-          </div>
+    <header className="sticky top-0 z-20 w-full backdrop-blur supports-[backdrop-filter]:bg-slate-900/60 bg-slate-900/80 border-b border-slate-800">
+      <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <div className="h-8 w-8 rounded-md bg-gradient-to-br from-cyan-400 to-fuchsia-500" />
+          <span className="text-slate-100 font-semibold tracking-tight">AIVid Share</span>
         </div>
         <button
-          onClick={onUploadClick}
-          className="inline-flex items-center gap-2 rounded-md bg-sky-500 text-white px-4 py-2 text-sm font-medium hover:bg-sky-600 transition-colors"
+          onClick={onOpenUpload}
+          className="inline-flex items-center gap-2 rounded-md px-4 py-2 bg-cyan-500 text-white hover:bg-cyan-400 active:bg-cyan-600 transition-colors"
         >
-          Upload Movie
+          <Upload className="h-4 w-4" />
+          Upload
         </button>
       </div>
     </header>
-  )
+  );
 }
-
-export default Navbar
